@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Modal from "./Modal"
 import {
   FaBars,
   FaDribbble,
@@ -10,6 +11,7 @@ import {
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -21,6 +23,15 @@ const Navbar = () => {
     { path: "/blogs", link: "Blogs" },
     { path: "/contact", link: "Contacts" },
   ];
+
+  // modal details
+  const openModal=()=>{
+    setIsModalOpen(true)
+  }
+
+  const closeModal=()=>{
+    setIsModalOpen(false)
+  }
 
   return (
     <header className="bg-black text-white fixed top-0 left-0 right-0">
@@ -56,10 +67,13 @@ const Navbar = () => {
           <a href="/" className="hover:text-orange-500">
             <FaTwitter />
           </a>
-          <button className="bg-orange-500 px-6 py-2 font-medium rounded hover:bg-white hover:text-orange-500 transition-all duration-200 ease-in">
+          <button onClick={openModal} className="bg-orange-500 px-6 py-2 font-medium rounded hover:bg-white hover:text-orange-500 transition-all duration-200 ease-in">
             Log In
           </button>
         </div>
+
+        {/* our modal component */}
+        <Modal isOpen={isModalOpen} onClose={closeModal}/>
 
         {/* mobile menu btn, display mobile screen */}
         <div className="md:hidden">
