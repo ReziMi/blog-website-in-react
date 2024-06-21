@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     list-style-type: none;
-    margin: 0;
+    margin: 35px 0;
     padding: 0;
 }
 
@@ -34,4 +34,8 @@
     background: rgb(255, 106, 0);
     border-radius: 4px;
     color: white;
+}
+
+.active-button{
+    color: #fc3c1a
 }
